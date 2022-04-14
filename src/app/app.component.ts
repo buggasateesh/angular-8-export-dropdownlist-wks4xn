@@ -238,23 +238,6 @@ export class AppComponent {
     }
 
     console.log(this.typelist);
-    // let type = [];
-    // let newtypelist = [];
-    // let a1 = [1, 2, 3, 4],
-    //   a2 = ['a', 'b', 'c', 'd'],
-    //   a3 = [9, 8, 7, 6],
-    //   a4 = ['z', 'y', 'x', 'w'],
-    //   result = [a1, a2, a3, a4].reduce((a, b) =>
-    //     a.map((v, i) => v + b[i]));
-
-    // console.log(result);
-    
-
-    // let array1: any = ['A', 'B', 'C'];
-
-    // let array2: any = ['1', '2', '3', '4'];
-
-    // console.log(array1.flatMap((d) =>console.log(d), array2.map((v) =>console.log(v))));
   }
 
   generateExcel(list, header) {
@@ -411,20 +394,17 @@ export class AppComponent {
       worksheet1.getCell('A' + index).dataValidation = {
         type: 'list',
         allowBlank: true,
-        formulae: ['=Sheet4!$A$1:$ZZ$1'],
+        formulae: ['=Sheet4!$A$1:$MAN$1'],
       };
       worksheet1.getCell('B' + index).dataValidation = {
         type: 'list',
         allowBlank: true,
         formulae: [
-          // '=OFFSET(Sheet4!$A$1, 1, MATCH(Sheet3!$A$1, Sheet4!$A$1:$O$1,0)-1, COUNTA(OFFSET(Sheet4!$A$1, 1, MATCH(Sheet3!$A$1, Sheet4!$A$1:$O$1,0)-1, 20)), 1)',
-          // '=OFFSET(Sheet4!$A$1:$O$1, 1, MATCH(Sheet3!$A$1:$O$1, Sheet4!$A$1:$O$1,0)-1, COUNTA(OFFSET(Sheet4!$A$1:$O$1, 1, MATCH(Sheet3!$A$1:$O$1, Sheet4!$A$1:$O$1,0)-1, 20)), 1)'
-          // '=OFFSET(Sheet4!$A$1, 1, MATCH($A$1, Sheet4!$A$1:$O$1,0)-1, COUNTA(OFFSET(Sheet4!$A$1, 1, MATCH($A$1, Sheet4!$A$1:$O$1,0)-1, 20)), 1)',
           '=OFFSET(Sheet4!$A$1, 1, MATCH($A$' +
             index +
-            ', Sheet4!$A$1:$ZZ$1,0)-1, COUNTA(OFFSET(Sheet4!$A$1, 1, MATCH($A$' +
+            ', Sheet4!$A$1:$MAN$1,0)-1, COUNTA(OFFSET(Sheet4!$A$1, 1, MATCH($A$' +
             index +
-            ', Sheet4!$A$1:$ZZ$1,0)-1, 20)), 1)',
+            ', Sheet4!$A$1:$MAN$1,0)-1, 20)), 1)',
         ],
       };
     }
